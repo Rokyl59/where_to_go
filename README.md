@@ -59,5 +59,10 @@ python manage.py load_place http://адрес/файла.json
 python manage.py runserver
 ```
 
+### Результат
+
+![277332231-ff428108-5063-4768-bf47-2fe8b6a8a3f3](https://github.com/user-attachments/assets/c19f0b9b-c73f-44de-b0fd-f7ee20d4b0e9)
+
+
 
 
