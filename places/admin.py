@@ -13,7 +13,7 @@ class PlaceImageInline(SortableTabularInline):
     def preview_image(self, place_image):
         if place_image.image:
             return format_html(
-                '<img src="{}" style="max-width: 100%; max-height: 200px;" width="200" height="200">',
+                '<img src="{}" style="max-width: 200px; max-height: 200px;">',
                 place_image.image.url
             )
         return 'No image'
