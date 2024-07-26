@@ -37,7 +37,7 @@ class PlaceImage(models.Model):
         db_index=True
     )
     place = models.ForeignKey(
-        Place,
+        'Place',
         on_delete=models.CASCADE,
         related_name='images',
         verbose_name='Место'
@@ -49,4 +49,4 @@ class PlaceImage(models.Model):
         verbose_name_plural = 'Изображения'
 
     def __str__(self):
-        return self.place.title
+        return f"{self.place.title} - Image {self.number}"
