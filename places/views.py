@@ -19,7 +19,7 @@ def show_map(request):
                 "properties": {
                     "title": place.title,
                     "placeId": place.id,
-                    "detailsUrl": reverse('places', args=(place.pk,))
+                    "detailsUrl": reverse("places", args=(place.pk,))
                 }
             } for place in places.iterator()
         ]
@@ -41,4 +41,4 @@ def get_page_with_place(request, place_id):
             "lng": place.longitude
         }
     }
-    return JsonResponse(serialize_place, json_dumps_params={'ensure_ascii': False, 'indent': 2})
+    return JsonResponse(serialize_place, json_dumps_params={"ensure_ascii": False, "indent": 2})
