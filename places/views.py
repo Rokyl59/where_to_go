@@ -1,6 +1,5 @@
 from django.http import JsonResponse
-from django.shortcuts import render
-from django.shortcuts import get_object_or_404
+from django.shortcuts import render, get_object_or_404
 from django.urls import reverse
 
 from .models import Place
@@ -10,10 +9,7 @@ def show_map(request):
     places = Place.objects.all()
     serialize_places = {
         "type": "FeatureCollection",
-        "features": []
-    }
-    for place in places.iterator():
-        serialize_places["features"].append(
+        "features": [
             {
                 "type": "Feature",
                 "geometry": {
@@ -25,8 +21,9 @@ def show_map(request):
                     "placeId": place.id,
                     "detailsUrl": reverse('places', args=(place.pk,))
                 }
-            }
-        )
+            } for place in places.iterator()
+        ]
+    }
     return render(request, template_name="index.html", context={"places": serialize_places})
 
 
